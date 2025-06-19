@@ -1,16 +1,19 @@
 
 import logging
 
+from pydantic import BaseModel
 from config import settings
 from fastapi import FastAPI
-from utils.log import setup_logging
+from jmcomic import *
+from jmcomic import jm_log
+from utils.log import log_init
+from model.manhua import ManHuaModel
+from service.jm import ManHuaService
 
-setup_logging()
+log_init()
 logger = logging.getLogger(__name__)
-
-
 app = FastAPI()
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+@app.post("/download-album")
+async def download_album(album: ManHuaModel):
+    return ManHuaService.add(album)

@@ -3,13 +3,13 @@ FROM swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/python:3.11-slim
 
 # 复制依赖文件并安装
 COPY requirements.txt .
-RUN pip install --no-cache-dir --upgrade -r requirements.txt -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple && mkdir -p /app/meiNing/
+RUN pip install --no-cache-dir --upgrade -r requirements.txt -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple && mkdir -p /app/songYu/
 
 # 复制应用代码
-COPY ./ /app/meiNing/
+COPY ./ /app/songYu/
 
 # 设置工作目录
-WORKDIR /app/meiNing
+WORKDIR /app/songYu
 
 # 暴露 FastAPI 默认端口
 EXPOSE 8000
