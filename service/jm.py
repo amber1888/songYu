@@ -26,7 +26,7 @@ class ManHuaService:
         client = JmOption.default().new_jm_client()
 
         # 分页查询，search_site就是禁漫网页上的【站内搜索】
-        page: JmSearchPage = client.search_site(search_query=man_hua.tag, page=1)
+        page: JmSearchPage = client.search_site(search_query=man_hua.tag, page=man_hua.page)
         # page默认的迭代方式是page.iter_id_title()，每次迭代返回 albun_id, title
         result = []
         for album_id, title in page:

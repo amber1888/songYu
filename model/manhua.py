@@ -9,3 +9,4 @@ class ManHuaModel(BaseModel):
 
 class SearchTag(BaseModel):
     tag: str
+    page: int = 1
