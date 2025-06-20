@@ -5,3 +5,4 @@ download:
 
 dir_rule:
   base_dir: /data/
+  rule: Bd/Aauthor/(JM{Aid}-{Pindex})-{Pname}

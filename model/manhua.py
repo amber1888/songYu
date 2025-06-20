@@ -6,3 +6,6 @@ from pydantic import BaseModel
 
 class ManHuaModel(BaseModel):
     album_id: str
+
+class SearchTag(BaseModel):
+    tag: str

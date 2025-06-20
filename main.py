@@ -1,13 +1,9 @@
 
 import logging
 
-from pydantic import BaseModel
-from config import settings
 from fastapi import FastAPI
-from jmcomic import *
-from jmcomic import jm_log
 from utils.log import log_init
-from model.manhua import ManHuaModel
+from model.manhua import ManHuaModel, SearchTag
 from service.jm import ManHuaService
 
 log_init()
@@ -17,3 +13,7 @@ app = FastAPI()
 @app.post("/download-album")
 async def download_album(album: ManHuaModel):
     return ManHuaService.add(album)
+
+@app.post("/query-album")
+async def query_album(album: SearchTag):
+    return ManHuaService.search(album)
